@@ -47,6 +47,16 @@ function App() {
         folio={folio}
         isOpen={isModalOpen}
         onClose={() => {
+          setFormData({
+            name: "",
+            lastName: "",
+            age: "",
+            category: "",
+            country: "",
+            state: "",
+            email: "",
+            phone: "",
+          });
           setIsModalOpen(!isModalOpen);
         }}
       />
