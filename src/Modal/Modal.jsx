@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Table } from "../Table/Table";
 
 // eslint-disable-next-line react/prop-types
 export const Modal = ({ folio, isOpen, onClose }) => {
@@ -46,8 +47,12 @@ export const Modal = ({ folio, isOpen, onClose }) => {
         </div>
         <p className="text-sm mb-4">
           Por favor, realiza el depósito usando el número de folio como
-          referencia y envía los detalles por correo a María.
+          referencia y envía los detalles por correo a:{" "}
         </p>
+        <div className="text-blue-400 w-[100%] text-center my-4">
+          <a href="mailto:pagos@jobtennislatam.org">pagos@jobtennislatam.org</a>
+        </div>
+        <Table />
         <p className=" mb-4 text-red-500 text-lg font-bold">
           Es necesario que copies tu folio antes de cerrar el aviso!
         </p>

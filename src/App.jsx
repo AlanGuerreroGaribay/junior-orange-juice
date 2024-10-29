@@ -5,7 +5,7 @@ import { FormInput } from "./FormInputs/FormInput";
 
 function App() {
   const [folio, setFolio] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     Nombre: "",
@@ -99,7 +99,7 @@ function App() {
             className="w-full bg-green text-white py-2 rounded mt-4"
             onClick={() => handleSubmit()}
           >
-            Mandar registro
+            Registrármelo
           </button>
         </div>
       </section>
