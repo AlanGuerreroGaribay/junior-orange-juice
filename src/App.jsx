@@ -1,20 +1,21 @@
 import { useState } from "react";
 import { Modal } from "./modal/modal";
 import Logo from "./assets/JOB-Identity-FINAL-CMYK.png";
+import { FormInput } from "./FormInputs/FormInput";
 
 function App() {
   const [folio, setFolio] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
-    name: "",
-    lastName: "",
-    age: "",
-    category: "",
-    country: "",
-    state: "",
-    email: "",
-    phone: "",
+    Nombre: "",
+    Apellido: "",
+    Edad: "",
+    Categoria: "12-14 años",
+    Pais: "",
+    Estado: "",
+    Email: "",
+    Telefono: "",
   });
 
   const handleChange = (e) => {
@@ -81,87 +82,18 @@ function App() {
           Regístrate aquí
         </h2>
         <div className="space-y-4">
-          <input
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder={errors.name ? "Falta agregar un Nombre" : "Nombre"}
-            className={`input ${
-              errors.name ? "placeholder-red-500 border-red-500" : ""
-            }`}
-          />
-          <input
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            placeholder={
-              errors.lastName ? "Falta agregar un Apellido!" : "Apellido"
-            }
-            className={`input ${
-              errors.lastName ? "placeholder-red-500 border-red-500" : ""
-            }`}
-          />
-          <input
-            name="age"
-            type="number"
-            value={formData.age}
-            onChange={handleChange}
-            placeholder={errors.age ? "Agrega la Edad" : "Edad"}
-            className={`input ${
-              errors.age ? "placeholder-red-500 border-red-500" : ""
-            }`}
-          />
-          <input
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-            placeholder={
-              errors.category ? "Falta agregar una Categoría!" : "Categoría"
-            }
-            className={`input ${
-              errors.category ? "placeholder-red-500 border-red-500" : ""
-            }`}
-          />
-          <input
-            name="country"
-            value={formData.country}
-            onChange={handleChange}
-            placeholder={errors.country ? "Falta agregar un País!" : "País"}
-            className={`input ${
-              errors.country ? "placeholder-red-500 border-red-500" : ""
-            }`}
-          />
-          <input
-            name="state"
-            value={formData.state}
-            onChange={handleChange}
-            placeholder={errors.state ? "Falta agregar un Estado!" : "Estado"}
-            className={`input ${
-              errors.state ? "placeholder-red-500 border-red-500" : ""
-            }`}
-          />
-          <input
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder={errors.email ? "Falta agregar un Email!" : "Email"}
-            className={`input ${
-              errors.email ? "placeholder-red-500 border-red-500" : ""
-            }`}
-          />
-          <input
-            name="phone"
-            type="tel"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder={
-              errors.phone ? "Falta agregar un Teléfono!" : "Teléfono"
-            }
-            className={`input ${
-              errors.phone ? "placeholder-red-500 border-red-500" : ""
-            }`}
-          />
+          {Object.keys(formData).map((state) => {
+            return (
+              <FormInput
+                key={state}
+                name={state}
+                value={formData[state]}
+                onChange={handleChange}
+                placeholder={state}
+                error={errors[state]}
+              />
+            );
+          })}
           <button
             type="submit"
             className="w-full bg-green text-white py-2 rounded mt-4"
@@ -170,15 +102,6 @@ function App() {
             Mandar registro
           </button>
         </div>
-        {/* {folio && (
-          <p className="text-sm mt-4">
-            Tu folio es: <span className="text-orange">{folio}</span>
-          </p>
-        )} */}
-        {/* <p className="text-sm mt-2">
-          Por favor, realiza el depósito usando el número de folio como
-          referencia y envía los detalles por correo a María.
-        </p> */}
       </section>
     </div>
   );
