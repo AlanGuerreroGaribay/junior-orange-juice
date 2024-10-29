@@ -5,6 +5,7 @@ import Logo from "./assets/JOB-Identity-FINAL-CMYK.png";
 function App() {
   const [folio, setFolio] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
@@ -19,26 +20,25 @@ function App() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    setErrors({ ...errors, [name]: false });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const validateForm = () => {
+    const newErrors = {};
+    Object.keys(formData).forEach((key) => {
+      if (!formData[key]) {
+        newErrors[key] = true; // Campo vacío
+      }
+    });
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
-    if (
-      !formData.name ||
-      !formData.lastName ||
-      !formData.age ||
-      !formData.category ||
-      !formData.state ||
-      !formData.email ||
-      !formData.phone
-    ) {
-      return alert(
-        "Revise todos los campos del formulario y llenelos correctamente!"
-      );
+  const handleSubmit = () => {
+    if (validateForm()) {
+      setIsModalOpen(!isModalOpen);
+      setFolio(`JOB-${Math.floor(100000 + Math.random() * 900000)}`);
     }
-
-    setIsModalOpen(!isModalOpen);
   };
 
   return (
@@ -80,85 +80,105 @@ function App() {
         <h2 className="text-xl font-semibold text-orange-600 mb-4">
           Regístrate aquí
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="space-y-4">
           <input
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Nombre"
-            className="input"
+            placeholder={errors.name ? "Falta agregar un Nombre" : "Nombre"}
+            className={`input ${
+              errors.name ? "placeholder-red-500 border-red-500" : ""
+            }`}
           />
           <input
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-            placeholder="Apellido"
-            className="input"
+            placeholder={
+              errors.lastName ? "Falta agregar un Apellido!" : "Apellido"
+            }
+            className={`input ${
+              errors.lastName ? "placeholder-red-500 border-red-500" : ""
+            }`}
           />
           <input
             name="age"
             type="number"
             value={formData.age}
             onChange={handleChange}
-            placeholder="Edad"
-            className="input"
+            placeholder={errors.age ? "Agrega la Edad" : "Edad"}
+            className={`input ${
+              errors.age ? "placeholder-red-500 border-red-500" : ""
+            }`}
           />
           <input
             name="category"
             value={formData.category}
             onChange={handleChange}
-            placeholder="categoría"
-            className="input"
+            placeholder={
+              errors.category ? "Falta agregar una Categoría!" : "Categoría"
+            }
+            className={`input ${
+              errors.category ? "placeholder-red-500 border-red-500" : ""
+            }`}
           />
           <input
             name="country"
             value={formData.country}
             onChange={handleChange}
-            placeholder="país"
-            className="input"
+            placeholder={errors.country ? "Falta agregar un País!" : "País"}
+            className={`input ${
+              errors.country ? "placeholder-red-500 border-red-500" : ""
+            }`}
           />
           <input
             name="state"
             value={formData.state}
             onChange={handleChange}
-            placeholder="Estado"
-            className="input"
+            placeholder={errors.state ? "Falta agregar un Estado!" : "Estado"}
+            className={`input ${
+              errors.state ? "placeholder-red-500 border-red-500" : ""
+            }`}
           />
           <input
             name="email"
             type="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="Email"
-            className="input"
+            placeholder={errors.email ? "Falta agregar un Email!" : "Email"}
+            className={`input ${
+              errors.email ? "placeholder-red-500 border-red-500" : ""
+            }`}
           />
           <input
             name="phone"
             type="tel"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="Teléfono"
-            className="input"
+            placeholder={
+              errors.phone ? "Falta agregar un Teléfono!" : "Teléfono"
+            }
+            className={`input ${
+              errors.phone ? "placeholder-red-500 border-red-500" : ""
+            }`}
           />
           <button
             type="submit"
             className="w-full bg-green text-white py-2 rounded mt-4"
-            onClick={() =>
-              setFolio(`JOB-${Math.floor(100000 + Math.random() * 900000)}`)
-            }
+            onClick={() => handleSubmit()}
           >
             Mandar registro
           </button>
-        </form>
+        </div>
         {/* {folio && (
           <p className="text-sm mt-4">
             Tu folio es: <span className="text-orange">{folio}</span>
           </p>
         )} */}
-        <p className="text-sm mt-2">
+        {/* <p className="text-sm mt-2">
           Por favor, realiza el depósito usando el número de folio como
           referencia y envía los detalles por correo a María.
-        </p>
+        </p> */}
       </section>
     </div>
   );
