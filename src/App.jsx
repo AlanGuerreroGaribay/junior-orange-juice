@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Modal } from "./modal/modal";
 import Logo from "./assets/JOB-Identity-FINAL-CMYK.png";
 
 function App() {
   const [folio, setFolio] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
@@ -21,14 +23,33 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Assuming you have a function to send data to María via email or backend
-    alert(
-      `Your registration folio is ${folio}. Please deposit and email María.`
-    );
+
+    if (
+      !formData.name ||
+      !formData.lastName ||
+      !formData.age ||
+      !formData.category ||
+      !formData.state ||
+      !formData.email ||
+      !formData.phone
+    ) {
+      return alert(
+        "Revise todos los campos del formulario y llenelos correctamente!"
+      );
+    }
+
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center text-gray-800">
+      <Modal
+        folio={folio}
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(!isModalOpen);
+        }}
+      />
       {/* Banner Section */}
       <header className="w-full bg-orange-200 p-4 flex justify-center items-center">
         <img src={Logo} alt="Junior Orange Bowl Logo" className="h-24" />
@@ -54,14 +75,14 @@ function App() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Name"
+            placeholder="Nombre"
             className="input"
           />
           <input
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-            placeholder="Last Name"
+            placeholder="Apellido"
             className="input"
           />
           <input
@@ -69,28 +90,28 @@ function App() {
             type="number"
             value={formData.age}
             onChange={handleChange}
-            placeholder="Age"
+            placeholder="Edad"
             className="input"
           />
           <input
             name="category"
             value={formData.category}
             onChange={handleChange}
-            placeholder="Category"
+            placeholder="categoría"
             className="input"
           />
           <input
             name="country"
             value={formData.country}
             onChange={handleChange}
-            placeholder="Country"
+            placeholder="país"
             className="input"
           />
           <input
             name="state"
             value={formData.state}
             onChange={handleChange}
-            placeholder="State"
+            placeholder="Estado"
             className="input"
           />
           <input
@@ -106,7 +127,7 @@ function App() {
             type="tel"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="Contact Phone"
+            placeholder="Teléfono"
             className="input"
           />
           <button
@@ -119,11 +140,11 @@ function App() {
             Mandar registro
           </button>
         </form>
-        {folio && (
+        {/* {folio && (
           <p className="text-sm mt-4">
             Tu folio es: <span className="text-orange">{folio}</span>
           </p>
-        )}
+        )} */}
         <p className="text-sm mt-2">
           Por favor, realiza el depósito usando el número de folio como
           referencia y envía los detalles por correo a María.

@@ -18,3 +18,18 @@ body,
 .input {
   @apply border p-2 w-full rounded;
 }
+
+@keyframes modalSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-modalSlide {
+  animation: modalSlide 0.5s ease-out forwards;
+}
