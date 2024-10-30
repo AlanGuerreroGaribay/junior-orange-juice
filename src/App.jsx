@@ -5,7 +5,7 @@ import { FormInput } from "./FormInputs/FormInput";
 import axios from "axios";
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const [folio, setFolio] = useState("");
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({

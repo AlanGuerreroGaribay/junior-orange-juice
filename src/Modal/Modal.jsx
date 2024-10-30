@@ -56,12 +56,14 @@ export const Modal = ({ folio, isOpen, onClose }) => {
         <p className=" mb-4 text-red-500 text-lg font-bold text-center">
           Es necesario que copies tu folio antes de cerrar el aviso!
         </p>
-        <button
-          onClick={closeHandler}
-          className="w-full bg-green  text-white py-2 rounded mt-4"
-        >
-          Aceptar!
-        </button>
+        <div className="w-full flex justify-center">
+          <button
+            onClick={closeHandler}
+            className="w-[50%] bg-green text-white py-2 rounded mt-4"
+          >
+            Aceptar!
+          </button>
+        </div>
       </div>
     </div>
   );
