@@ -121,7 +121,7 @@ function App() {
             className="w-full bg-green text-white py-2 rounded mt-4"
             onClick={() => handleSubmit()}
           >
-            Registrar
+            Registrarme
           </button>
         </div>
       </section>
