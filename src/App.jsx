@@ -2,15 +2,16 @@ import { useState } from "react";
 import { Modal } from "./modal/modal";
 import Logo from "./assets/JOB-Identity-FINAL-CMYK.png";
 import { FormInput } from "./FormInputs/FormInput";
+import axios from "axios";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [folio, setFolio] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(true);
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     Nombre: "",
     Apellido: "",
-    Edad: "",
+    Edad: 0,
     Categoria: "12-14 años",
     Pais: "",
     Estado: "",
@@ -35,10 +36,30 @@ function App() {
     return Object.keys(newErrors).length === 0;
   };
 
+  const register = async (data) => {
+    const registerResponse = await axios.post("/tournament/api/users", data);
+
+    setFolio(registerResponse.data.id);
+    return registerResponse.data;
+  };
+
+  //"5c5c209f-9650-11ef-ba0f-00163e560bc8"
+
   const handleSubmit = () => {
+    const data = {
+      name: formData.Nombre,
+      last_name: formData.Apellido,
+      age: Number(formData.Edad),
+      country: formData.Pais,
+      state: formData.Estado,
+      email: formData.Email,
+      phone: formData.Telefono,
+      category: formData.Categoria,
+    };
+
     if (validateForm()) {
       setIsModalOpen(!isModalOpen);
-      setFolio(`JOB-${Math.floor(100000 + Math.random() * 900000)}`);
+      register(data);
     }
   };
 

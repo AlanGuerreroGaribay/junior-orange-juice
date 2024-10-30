@@ -26,7 +26,7 @@ export const Modal = ({ folio, isOpen, onClose }) => {
         </h2>
         <p className="text-gray-700 mb-4">Tu número de folio es: </p>
         <div className="flex justify-center items-center w-full mb-4">
-          <h3 className="text-orange font-bold  text-center mr-4">
+          <h3 className="text-orange font-bold text-sm text-center mr-4">
             {`${copied ? "Copiado! " : "Copiar "}: ${folio}`}
           </h3>
           <svg
