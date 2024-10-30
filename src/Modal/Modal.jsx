@@ -20,7 +20,7 @@ export const Modal = ({ folio, isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-8 w-80 transform transition-transform duration-300 ease-out opacity-0 translate-y-[-50%] animate-modalSlide">
+      <div className="bg-white rounded-lg p-8 w-[50%] transform transition-transform duration-300 ease-out opacity-0 translate-y-[-50%] animate-modalSlide">
         <h2 className="text-xl font-semibold text-orange-600 mb-4">
           Registro Exitoso!
         </h2>
@@ -53,7 +53,7 @@ export const Modal = ({ folio, isOpen, onClose }) => {
           <a href="mailto:pagos@jobtennislatam.org">pagos@jobtennislatam.org</a>
         </div>
         <Table />
-        <p className=" mb-4 text-red-500 text-lg font-bold">
+        <p className=" mb-4 text-red-500 text-lg font-bold text-center">
           Es necesario que copies tu folio antes de cerrar el aviso!
         </p>
         <button

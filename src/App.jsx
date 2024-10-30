@@ -5,13 +5,13 @@ import { FormInput } from "./FormInputs/FormInput";
 import axios from "axios";
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const [folio, setFolio] = useState("");
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     Nombre: "",
     Apellido: "",
-    Edad: 0,
+    Edad: 12,
     Categoria: "12-14 años",
     Pais: "",
     Estado: "",
@@ -70,14 +70,14 @@ function App() {
         isOpen={isModalOpen}
         onClose={() => {
           setFormData({
-            name: "",
-            lastName: "",
-            age: "",
-            category: "",
-            country: "",
-            state: "",
-            email: "",
-            phone: "",
+            Nombre: "",
+            Apellido: "",
+            Edad: 12,
+            Categoria: "12-14 años",
+            Pais: "",
+            Estado: "",
+            Email: "",
+            Telefono: "",
           });
           setIsModalOpen(!isModalOpen);
         }}
@@ -104,6 +104,7 @@ function App() {
         </h2>
         <div className="space-y-4">
           {Object.keys(formData).map((state) => {
+            console.log(state);
             return (
               <FormInput
                 key={state}
@@ -120,7 +121,7 @@ function App() {
             className="w-full bg-green text-white py-2 rounded mt-4"
             onClick={() => handleSubmit()}
           >
-            Registrármelo
+            Registrar
           </button>
         </div>
       </section>
