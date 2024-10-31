@@ -59,7 +59,7 @@ export const Modal = ({ folio, isOpen, onClose }) => {
         <div className="w-full flex justify-center">
           <button
             onClick={closeHandler}
-            className="w-[50%] bg-green text-white py-2 rounded mt-4"
+            className="w-[50%] bg-green rounded-full font-semibold text-white py-2 mt-4"
           >
             Aceptar!
           </button>
