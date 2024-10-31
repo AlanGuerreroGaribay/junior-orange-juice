@@ -121,14 +121,15 @@ function App() {
           Bienvenido a Junior Orange Bowl!
         </h1>
         <p className="text-lg mt-4">
-          The Junior Orange Bowl International Tennis Championship is one of the
-          most important and prestigious junior tennis tournaments in the world!
-          This globally recognized event brings together 800 of the top ranked
-          male and female 12-and-under and 14-and-under junior players
-          representing 76 countries! The tournament boasts an impressive alumni
-          list of pros including Andy Murray, Coco Gauff, Roger Federer, and
-          many others. We look forward to welcoming this years talented junior
-          players and congratulating the new champions!
+          El Campeonato Internacional de Tenis Junior Orange Bowl es uno de los
+          torneos de tenis juvenil más importantes y prestigiosos del mundo.
+          ¡Este evento, reconocido a nivel global, reúne a 800 de los mejores
+          jugadores juveniles, tanto masculinos como femeninos, de las
+          categorías sub-12 y sub-14, representando a 76 países! El torneo
+          cuenta con una impresionante lista de exalumnos profesionales, entre
+          ellos Andy Murray, Coco Gauff, Roger Federer y muchos otros.
+          ¡Esperamos con entusiasmo recibir a los talentosos jugadores juveniles
+          de este año y felicitar a los nuevos campeones!
         </p>
         <div className="bg-orange w-[50%] m-auto h-[1px] mt-10"></div>
       </section>
