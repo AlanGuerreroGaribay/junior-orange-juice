@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { FormInput } from "../components/FormInputs/FormInput";
-import { Modal } from "../components/Modal/Modal";
-import { Banner } from "../components/Banner/Banner";
-import Logo from "../assets/JOB-Identity-FINAL-CMYK.png";
+import { FormInput } from "../../components/FormInputs/FormInput";
+import { Modal } from "../../components/Modal/Modal";
+import { Banner } from "../../components/Banner/Banner";
+import { SelectBox } from "../../components/SelectBox/SelectBox";
+import Logo from "../../assets/JOB-Identity-FINAL-CMYK.png";
 import axios from "axios";
-import { SelectBox } from "../components/SelectBox/SelectBox";
+import { Link } from "react-router-dom";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,7 +17,7 @@ function App() {
     Nombre: "",
     Apellido: "",
     Edad: 12,
-    Categoria: "12-14 años",
+    Categoria: "",
     Pais: "",
     Estado: "",
     Email: "",
@@ -143,14 +144,10 @@ function App() {
         <div className="space-y-4">
           {Object.keys(formData).map((state) => {
             return (
-              <>
-                {state === "Categoria" && (
-                  <SelectBox key={state} onChange={handleChange} />
-                )}
-
+              <div key={state}>
+                {state === "Categoria" && <SelectBox onChange={handleChange} />}
                 {state !== "Categoria" && state !== "" && (
                   <FormInput
-                    key={state}
                     name={state}
                     value={formData[state]}
                     onChange={handleChange}
@@ -158,7 +155,7 @@ function App() {
                     error={errors[state]}
                   />
                 )}
-              </>
+              </div>
             );
           })}
           <button
@@ -169,6 +166,12 @@ function App() {
             Registrarme
           </button>
         </div>
+      </section>
+
+      <section className="bg-white text-center text-orange rounded w-full max-w-lg mt-4 mb-8">
+        <Link className="underline" to="/privacy">
+          Consultar el contrato de confidencialidad aquí
+        </Link>
       </section>
     </div>
   );
