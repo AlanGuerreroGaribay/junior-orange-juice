@@ -145,8 +145,14 @@ function App() {
           {Object.keys(formData).map((state) => {
             return (
               <div key={state}>
-                {state === "Categoria" && <SelectBox onChange={handleChange} />}
-                {state !== "Categoria" && state !== "" && (
+                {state === "Categoria" && (
+                  <SelectBox
+                    name={"Categoria"}
+                    value={formData["Categoria"]}
+                    onChange={handleChange}
+                  />
+                )}
+                {state !== "Categoria" && (
                   <FormInput
                     name={state}
                     value={formData[state]}

@@ -1,9 +1,9 @@
 import React from "react";
 
 // eslint-disable-next-line react/prop-types
-export const SelectBox = ({ onChange }) => {
+export const SelectBox = ({ name, onChange }) => {
   return (
-    <select onChange={onChange} className="input">
+    <select name={name} onChange={onChange} className="input">
       <option value="">-- Seleccione una categoría --</option>
       <option value="U12 nacidos 2013 y 2014 femenil ">
         U12 nacidos 2013 y 2014 femenil{" "}
