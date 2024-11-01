@@ -1,8 +1,9 @@
 // eslint-disable-next-line react/prop-types
 export const FormInput = ({ name, value, onChange, placeholder, error }) => {
   return (
-    <div>
+    <>
       <input
+        key={name}
         name={name}
         disabled={name === "Categoria" ? true : false}
         value={name === "Edad" && value < 0 ? 0 : value}
@@ -16,6 +17,6 @@ export const FormInput = ({ name, value, onChange, placeholder, error }) => {
       ) : (
         <></>
       )}
-    </div>
+    </>
   );
 };

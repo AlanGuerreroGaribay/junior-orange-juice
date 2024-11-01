@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { FormInput } from "./components/FormInputs/FormInput";
-import { Modal } from "./components/Modal/Modal";
-import { Banner } from "./components/Banner/Banner";
-import Logo from "./assets/JOB-Identity-FINAL-CMYK.png";
+import { FormInput } from "../components/FormInputs/FormInput";
+import { Modal } from "../components/Modal/Modal";
+import { Banner } from "../components/Banner/Banner";
+import Logo from "../assets/JOB-Identity-FINAL-CMYK.png";
 import axios from "axios";
+import { SelectBox } from "../components/SelectBox/SelectBox";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -141,15 +142,24 @@ function App() {
         </h2>
         <div className="space-y-4">
           {Object.keys(formData).map((state) => {
+            console.log(state);
             return (
-              <FormInput
-                key={state}
-                name={state}
-                value={formData[state]}
-                onChange={handleChange}
-                placeholder={state}
-                error={errors[state]}
-              />
+              <>
+                {state === "Categoria" && (
+                  <SelectBox key={state} onChange={handleChange} />
+                )}
+
+                {state !== "Categoria" && state !== "" && (
+                  <FormInput
+                    key={state}
+                    name={state}
+                    value={formData[state]}
+                    onChange={handleChange}
+                    placeholder={state}
+                    error={errors[state]}
+                  />
+                )}
+              </>
             );
           })}
           <button
