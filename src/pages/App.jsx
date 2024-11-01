@@ -142,7 +142,6 @@ function App() {
         </h2>
         <div className="space-y-4">
           {Object.keys(formData).map((state) => {
-            console.log(state);
             return (
               <>
                 {state === "Categoria" && (
