@@ -16,7 +16,7 @@ function App() {
   const [formData, setFormData] = useState({
     Nombre: "",
     Apellido: "",
-    Edad: 12,
+    Edad: "",
     Categoria: "",
     Pais: "",
     Estado: "",
@@ -47,8 +47,6 @@ function App() {
     setFolio(registerResponse?.data?.id);
     return registerResponse.data;
   };
-
-  //"5c5c209f-9650-11ef-ba0f-00163e560bc8"
 
   const handleSubmit = () => {
     const data = {
@@ -96,7 +94,7 @@ function App() {
             Nombre: "",
             Apellido: "",
             Edad: 12,
-            Categoria: "12-14 años",
+            Categoria: "",
             Pais: "",
             Estado: "",
             Email: "",
@@ -139,7 +137,7 @@ function App() {
       {/* Registration Form */}
       <section className="bg-white shadow-md rounded p-8 w-full max-w-lg my-8">
         <h2 className="text-xl font-semibold text-orange-600 mb-4">
-          Regístrate aquí
+          Regístro del Participante
         </h2>
         <div className="space-y-4">
           {Object.keys(formData).map((state) => {

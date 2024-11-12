@@ -50,7 +50,7 @@ export const Modal = ({ folio, isOpen, onClose }) => {
           referencia y envía los detalles por correo a:{" "}
         </p>
         <div className="text-blue-400 w-[100%] text-center my-4">
-          <a href="mailto:pagos@jobtennislatam.org">pagos@jobtennislatam.org</a>
+          <a href="mailto:pagos@jobtennislatam.com">pagos@jobtennislatam.com</a>
         </div>
         <Table />
         <p className=" mb-4 text-red-500 text-lg font-bold text-center">
