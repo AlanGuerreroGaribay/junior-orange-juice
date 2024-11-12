@@ -8,7 +8,7 @@ export const FormInput = ({ name, value, onChange, placeholder, error }) => {
         disabled={name === "Categoria" ? true : false}
         value={name === "Edad" && value < 0 ? 0 : value}
         onChange={onChange}
-        placeholder={placeholder === "Categoria" ? "12-14 años" : placeholder}
+        placeholder={placeholder === "Categoria" ? "" : placeholder}
         type={name === "Edad" ? "number" : ""}
         className="input"
       />

@@ -42,7 +42,7 @@ export const Table = () => {
               CLABE
             </td>
             <td className="px-1 py-4 border-b border-gray-300 text-gray-900">
-              021320040439252375
+              021320040439452375
             </td>
           </tr>
         </tbody>
