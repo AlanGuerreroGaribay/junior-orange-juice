@@ -48,7 +48,7 @@ function App() {
     return registerResponse.data;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const data = {
       name: formData.Nombre,
       last_name: formData.Apellido,
@@ -109,7 +109,11 @@ function App() {
           showHeader ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <img src={Logo} alt="Junior Orange Bowl Logo" className="h-24" />
+        <img
+          src={Logo}
+          alt="Junior Orange Bowl Logo"
+          className="md:h-24 h-12"
+        />
       </header>
 
       {/* Banner Section*/}
@@ -117,10 +121,10 @@ function App() {
 
       {/* Text Body Section */}
       <section className="p-6 w-full max-w-4xl text-center my-6">
-        <h1 className="text-2xl font-semibold text-orange-600">
+        <h1 className="text-md md:text-2xl font-semibold text-orange-600">
           Bienvenido a Junior Orange Bowl!
         </h1>
-        <p className="text-lg mt-4">
+        <p className="text-sm md:text-lg mt-4">
           El Campeonato Internacional de Tenis Junior Orange Bowl es uno de los
           torneos de tenis juvenil más importantes y prestigiosos del mundo.
           ¡Este evento, reconocido a nivel global, reúne a 800 de los mejores

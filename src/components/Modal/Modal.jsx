@@ -19,9 +19,9 @@ export const Modal = ({ folio, isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-8 w-[50%] transform transition-transform duration-300 ease-out opacity-0 translate-y-[-50%] animate-modalSlide">
-        <h2 className="text-xl font-semibold text-orange-600 mb-4">
+    <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-[1000000]">
+      <div className="bg-white rounded-lg p-8  w-[90%] md:w-[50%] transform transition-transform duration-300 ease-out opacity-0 translate-y-[-50%] animate-modalSlide">
+        <h2 className="text-md md:text-xl font-semibold text-orange-600 mb-4">
           Registro Exitoso!
         </h2>
         <p className="text-gray-700 mb-4">Tu número de folio es: </p>
@@ -36,7 +36,7 @@ export const Modal = ({ folio, isOpen, onClose }) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-6 fill-red-500 cursor-pointer hover:opacity-35"
+            className="size-16 md:size-6 fill-red-500 cursor-pointer hover:opacity-35"
           >
             <path
               strokeLinecap="round"
@@ -49,11 +49,16 @@ export const Modal = ({ folio, isOpen, onClose }) => {
           Por favor, realiza el depósito usando el número de folio como
           referencia y envía los detalles por correo a:{" "}
         </p>
-        <div className="text-blue-400 w-[100%] text-center my-4">
-          <a href="mailto:pagos@jobtennislatam.com">pagos@jobtennislatam.com</a>
+        <div className=" text-blue-400 w-[100%] text-center my-4">
+          <a
+            className="text-xs md:text-lg"
+            href="mailto:pagos@jobtennislatam.com"
+          >
+            pagos@jobtennislatam.com
+          </a>
         </div>
         <Table />
-        <p className=" mb-4 text-red-500 text-lg font-bold text-center">
+        <p className="text-sm md:text-lg mb-4 text-red-500 font-bold text-center">
           Es necesario que copies tu folio antes de cerrar el aviso!
         </p>
         <div className="w-full flex justify-center">
